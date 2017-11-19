@@ -79,14 +79,14 @@ const prompts = { // what the bot says
     }
   },
   "6": {
-    content: "Right now, we're doing some really exciting things with augmented reality. I can even show you a video!",
+    content: () => {
+      flags.hasSeenVideo = true;
+      return "Right now, we're doing some really exciting things with augmented reality. I can even show you a video!";
+    },
     prompt: "7"
   },
   "7": {
-    component: () => {
-      flags.hasSeenVideo = true;
-      return (<ReactPlayer url='https://vimeo.com/228921453' />);
-    },
+    component: (<ReactPlayer url='https://vimeo.com/228921453' />),
     edges: {
       "5": "5"
     }
