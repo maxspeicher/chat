@@ -12,7 +12,13 @@ registerServiceWorker();
 let oldHeight;
 
 window.setInterval(function() {
-  const contentHeight = document.querySelector('.rsc-content').clientHeight;
+  const content = document.querySelector('.rsc-content');
+
+  if (!content) {
+    return;
+  }
+
+  const contentHeight = content.clientHeight;
 
   if (oldHeight && oldHeight !== contentHeight) {
     window.scrollTo(0, document.body.scrollHeight);
