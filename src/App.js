@@ -83,7 +83,10 @@ const prompts = { // what the bot says
     prompt: "7"
   },
   "7": {
-    component: (<ReactPlayer url='https://vimeo.com/228921453' />),
+    component: () => {
+      flags.hasSeenVideo = true;
+      return (<ReactPlayer url='https://vimeo.com/228921453' />);
+    },
     edges: {
       "5": "5"
     }
@@ -110,7 +113,13 @@ const prompts = { // what the bot says
     },
   },
   "11": {
-    content: "Time for another video ...",
+    content: () => {
+      if (flags.hasSeenVideo) {
+        return "Time for another video ...";
+      }
+
+      return "Don't worry! I've got you covered!"
+    },
     prompt: "12"
   },
   "12": {
