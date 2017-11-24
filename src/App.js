@@ -34,7 +34,7 @@ const prompts = { // what the bot says
   "0": {
     content: () => {
       flags = {};
-      return "Hi there! I'm a chat bot pretending to be Max. *beep boop* I'm a designer & computer scientist.";
+      return "Hi there! I'm a little chat bot pretending to be Max. *beep boop* I'm a designer & computer scientist.";
     },
     edges: {
       "1": "0",
